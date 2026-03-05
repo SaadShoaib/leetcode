@@ -2,25 +2,25 @@
 # https://leetcode.com/problems/binary-search/description/
 
 nums = [-1,0,3,5,9,12]
-target = 9
+target = 2
 
 def search(nums, target):
     
     left = 0
     right = len(nums) - 1
 
-    while left <= target:
+    while left <= right:
 
         mid = (left + right) // 2
 
-        if nums[mid] == target:
-            return mid
-        
-        elif nums[mid] > target:
+        if nums[mid] > target:
             right = mid - 1
         
-        else:
+        elif nums[mid] < target:
             left = mid + 1
+
+        else: 
+            return mid
     
     return -1
 
